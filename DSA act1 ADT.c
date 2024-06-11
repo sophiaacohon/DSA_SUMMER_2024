@@ -88,42 +88,24 @@ void insertFront(classRecord *cr){
 }
 
 void insertRear(classRecord *cr){
-	printf("count: %d\n", cr->studCount); //debug
-    if(cr->studCount == 0){
+	 printf("count: %d\n", cr->studCount); //debug
+    if(cr->studCount < MAX){
         printf("Enter First Name: ");
-        scanf("%s", cr->studlist[0].name.fName);
+        scanf("%s", cr->studlist[cr->studCount].name.fName);
         printf("Enter Last Name: ");
-        scanf("%s", cr->studlist[0].name.lName);
+        scanf("%s", cr->studlist[cr->studCount].name.lName);
         printf("Enter birth month in digits: ");
-        scanf("%d", &cr->studlist[0].birthdate.month);
+        scanf("%d", &cr->studlist[cr->studCount].birthdate.month);
         printf("Enter birth date in digits: ");
-        scanf("%d", &cr->studlist[0].birthdate.date);
+        scanf("%d", &cr->studlist[cr->studCount].birthdate.date);
         printf("Enter birth year in digits: ");
-        scanf("%d", &cr->studlist[0].birthdate.year);
+        scanf("%d", &cr->studlist[cr->studCount].birthdate.year);
         printf("Enter age: ");
-        scanf("%d", &cr->studlist[0].age);
+        scanf("%d", &cr->studlist[cr->studCount].age);
         printf("Enter ID Number: ");
-        scanf("%d", &cr->studlist[0].idNum);
-    }
-    else if(cr->studCount > 0 && cr->studCount < MAX){
-        printf("count: %d\n", cr->studCount); // Debug
-        cr->studCount++;
-        printf("count: %d\n", cr->studCount); // Debug
-        printf("Enter First Name: ");
-        scanf("%s", cr->studlist[cr->studCount - 1].name.fName);
-        printf("Enter Last Name: ");
-        scanf("%s", cr->studlist[cr->studCount - 1].name.lName);
-        printf("Enter birth month in digits: ");
-        scanf("%d", &cr->studlist[cr->studCount - 1].birthdate.month);
-        printf("Enter birth date in digits: ");
-        scanf("%d", &cr->studlist[cr->studCount - 1].birthdate.date);
-        printf("Enter birth year in digits: ");
-        scanf("%d", &cr->studlist[cr->studCount - 1].birthdate.year);
-        printf("Enter age: ");
-        scanf("%d", &cr->studlist[cr->studCount - 1].age);
-        printf("Enter ID Number: ");
-        scanf("%d", &cr->studlist[cr->studCount - 1].idNum);
+        scanf("%d", &cr->studlist[cr->studCount].idNum);
         
+        cr->studCount++;  // Increment the student count after inserting a new student
     }
     else if(cr->studCount == MAX){
         printf("MAXIMUM NUMBER OF STUDENTS REACHED.");
@@ -215,11 +197,19 @@ void deleteIndex(classRecord *cr){
 	printf("Record at index %d deleted successfully.", position);
 }
 
-void displayRecord(classRecord cr){
+void displayRecord(classRecord cr) {
     int i;
-    printf("%10s %15s %15s %15s %15s %10s\n", "INDEX", "ID NUMBER", "FIRST NAME", "LAST NAME", "BIRTHDAY", "AGE");
-    for (i = 0; i < cr.studCount; i++){
-        printf("[%10d] %10d, %10s %10s %10d/%d/%d %10d\n", i, cr.studlist[i].idNum, cr.studlist[i].name.fName, cr.studlist[i].name.lName, cr.studlist[i].birthdate.month, cr.studlist[i].birthdate.date, cr.studlist[i].birthdate.year, cr.studlist[i].age);
+    printf("%5s %12s %15s %15s %10s %8s\n", "INDEX", "ID NUMBER", "FIRST NAME", "LAST NAME", "BIRTHDAY", "AGE");
+    for (i = 0; i < cr.studCount; i++) {
+        printf("[%d]%10d %15s %15s %8d/%d/%d %8d\n",
+            i,
+            cr.studlist[i].idNum,
+            cr.studlist[i].name.fName,
+            cr.studlist[i].name.lName,
+            cr.studlist[i].birthdate.month,
+            cr.studlist[i].birthdate.date,
+            cr.studlist[i].birthdate.year,
+            cr.studlist[i].age);
     }
 }
 
