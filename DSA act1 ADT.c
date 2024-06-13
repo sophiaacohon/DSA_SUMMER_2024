@@ -42,7 +42,7 @@ void displayMenu(){
 }
 
 void insertFront(classRecord *cr){
-	printf("count: %d\n", cr->studCount); //debug
+	//printf("count: %d\n", cr->studCount); //debug
     if(cr->studCount == 0){
         printf("Enter First Name: ");
         scanf("%s", cr->studlist[0].name.fName);
@@ -63,9 +63,9 @@ void insertFront(classRecord *cr){
     }
     else if(cr->studCount > 0 && cr->studCount < MAX){
         int i;
-        printf("count: %d\n", cr->studCount); //debug
+        //printf("count: %d\n", cr->studCount); //debug
         cr->studCount++;
-        printf("count: %d\n", cr->studCount); //debug
+        //printf("count: %d\n", cr->studCount); //debug
         for(i = cr->studCount - 1; i >= 0; i--){
             cr->studlist[i+1] = cr->studlist[i];
         }
@@ -88,7 +88,7 @@ void insertFront(classRecord *cr){
 }
 
 void insertRear(classRecord *cr){
-	 printf("count: %d\n", cr->studCount); //debug
+	//printf("count: %d\n", cr->studCount); //debug
     if(cr->studCount < MAX){
         printf("Enter First Name: ");
         scanf("%s", cr->studlist[cr->studCount].name.fName);
@@ -113,12 +113,12 @@ void insertRear(classRecord *cr){
 }
 
 void insertIndex(classRecord *cr){
-	printf("count: %d\n", cr->studCount); //debug
+	//printf("count: %d\n", cr->studCount); //debug
 	int position, i;
 	printf("Which index do you want to insert a record?");
 	scanf("%d", &position);
 	cr->studCount++;
-	printf("count: %d\n", cr->studCount); //debug
+	//printf("count: %d\n", cr->studCount); //debug
 	for(i = cr->studCount - 1; i >= position; i--){
             cr->studlist[i+1] = cr->studlist[i];
     }
