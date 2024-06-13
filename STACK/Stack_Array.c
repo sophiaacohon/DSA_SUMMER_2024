@@ -5,7 +5,7 @@
 
 StackArrayList createStack(){
 	StackArrayList s;
-	s->top = -1;
+	s.top = -1;
 }
 
 /*
@@ -26,9 +26,9 @@ bool isFull(StackArrayList s){
 }
 
 bool stack_push(StackArrayList *s, int elem){
-	if(isFull(s)){
+	if(isFull(*s)){
 		printf("Stack is Full");
-		return
+		return;
 	}
 	else{
 		s->data[s->data[s->top++]] == elem;
@@ -36,12 +36,11 @@ bool stack_push(StackArrayList *s, int elem){
 }
 
 bool stack_pop(StackArrayList *s){
-	if(isEmpty(s)){
+	if(isEmpty(*s)){
 		printf("Stack is Empty");
 	}
 	else{
-		s->data[s->data[s->top--]]
-	}
+		s->data[s->data[s->top--]];
 }
 
 int stack_peek(StackArrayList s){
@@ -49,7 +48,7 @@ int stack_peek(StackArrayList s){
 		return;
 	}
 	else{
-		printf("%d", s->data[s->top]);
+		printf("%d", s.data[s.top]);
 	}
 	
 }
@@ -63,9 +62,9 @@ void visualize(StackArrayList s){
 	printf(" INDEX        VALUE     ");
 	for(i = 0; i< s.top; i++){
 		if(i == s.top){
-			printf("   %d        %d        TOP\n", i, s[i]);
+			printf("   %d        %d        TOP\n", i, s.data[i]);
 		}
-		printf("   %d        %d\n")
+		printf("   %d        %d\n");
 	}
 }
 
