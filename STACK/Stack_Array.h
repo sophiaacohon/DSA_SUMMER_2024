@@ -1,12 +1,13 @@
 #ifndef STACK_ARRAY
 #define STACK_ARRAY
 
+#include<stdbool.h>
 #define MAX 20
 
 typedef struct{
 	int data[MAX];
 	int top;
-} StaticArrayList;
+} StackArrayList;
 
 bool isEmpty(StackArrayList s);
 bool isFull(StackArrayList s);
