@@ -45,7 +45,13 @@ bool stack_pop(StackArrayList *s){
 }
 
 int stack_peek(StackArrayList s){
-	printf("%d", s->data[s->top]);
+	if(isEmpty){
+		return;
+	}
+	else{
+		printf("%d", s->data[s->top]);
+	}
+	
 }
 
 void display(StackArrayList s){
