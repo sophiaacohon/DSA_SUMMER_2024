@@ -6,7 +6,19 @@
 
 
 int main(int argc, char *argv[]) {
-	struct Queue *q = malloc(sizeof(q));
+	Queue *q = malloc(sizeof(Queue));
+	initQueue(q);
+	enqueue(q, 10);
+	enqueue(q, 20);
+	enqueue(q, 30);
+	//front(q);
+	printf("FRONT: %d\n", front(q));
+	printf("REAR: %d\n", rear(q));
+	dequeue(q);
+	printf("FRONT: %d\n", front(q));
+	enqueue(q, 40);
+	printf("FRONT: %d\n", front(q));
+	printf("REAR: %d\n", rear(q));
 	
 	return 0;
 }

@@ -6,23 +6,20 @@
 void initQueue(Queue *q){
 	q->front = NULL;
 	q->rear = NULL;
-
 }
 
 bool isEmpty(Queue* q){
-	if(q->front == NULL && q->rear == NULL){
-		return true;
-	}
-	else{
-		return false;
-	}
+	return(q->front == NULL && q->rear == NULL)?true:false;
 }
 
 void enqueue(Queue *q, int n){
 	NodePtr temp = malloc(sizeof(Node));
+	if(temp == NULL){
+		printf("Memory not allocated");
+	}
 	temp->data = n;
 	temp->next = NULL;
-	if(isEmpty(*q) == true){
+	if(isEmpty(q)){
 		q->front = temp;
 		q->rear = temp;
 	}
@@ -40,10 +37,10 @@ void dequeue(Queue *q){
 }
 
 int front(Queue *q){
-	return q->front;
+	return (q->front != NULL)? q->front->data : -1;
 }
 
 int rear(Queue *q){
-	return q->rear;
+	return (q->rear != NULL)? q->rear->data : -1;
 }
 
