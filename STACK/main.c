@@ -28,6 +28,8 @@ int main(int argc, char *argv[]) {
 	display(stack);
 	visualize(stack);
 	stack_evenNumber(&stack);
+	printf("\n");
+	visualize(stack);
 	
 	printf("\nSTACK USING LINKED LISTS\n");
 	NodePtr sll = sll_createStack();
@@ -49,10 +51,9 @@ int main(int argc, char *argv[]) {
 	sll_stack_push(&sll, 4);
 	sll_stack_push(&sll, 94);
 	sll_visualize(sll);
-	sll_display(&sll);
-	//sll_stack_evenNumber(&sll);
-	//sll_visualize(sll);
-	//sll_display(&sll);
+	sll_stack_evenNumber(&sll);
+	printf("PEEK: %d\n", sll_stack_peek(sll));
+	sll_visualize(sll);
 
 	
 	return 0;

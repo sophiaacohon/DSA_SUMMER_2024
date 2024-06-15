@@ -40,6 +40,7 @@ bool sll_stack_pop(NodePtr *stack){
         return false;
     }
     else{
+    	NodePtr trav = *stack;
         if((*stack)->next == NULL){
             free(*stack);
             *stack = NULL;
@@ -119,15 +120,15 @@ void sll_visualize(NodePtr stack) {
     }
 }
 
-/*
+
 void sll_stack_evenNumber(NodePtr *stack) {
     NodePtr evenStack = sll_createStack();
     NodePtr tempStack = sll_createStack();
 
-    // Separate even and odd elements
     while (!sll_isEmpty(*stack)) {
         int elem = sll_stack_peek(*stack);
-        sll_stack_pop(stack);
+        sll_stack_pop(stack);  
+
         if (elem % 2 == 0) {
             sll_stack_push(&evenStack, elem);
         } else {
@@ -135,20 +136,17 @@ void sll_stack_evenNumber(NodePtr *stack) {
         }
     }
 
-    // Restore odd elements back to the original stack
     while (!sll_isEmpty(tempStack)) {
         int elem = sll_stack_peek(tempStack);
         sll_stack_pop(&tempStack);
         sll_stack_push(stack, elem);
     }
 
-    // Print the even numbers in the new stack
     printf("\nEVEN NUMBERS:");
-    sll_display(&evenStack);
+    sll_visualize(evenStack);
 
-    // Free the memory allocated for the even stack
     while (!sll_isEmpty(evenStack)) {
         sll_stack_pop(&evenStack);
     }
 }
-*/
+

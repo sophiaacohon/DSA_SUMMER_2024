@@ -85,7 +85,6 @@ void stack_evenNumber(StackArrayList *s) {
     StackArrayList oddStack = createStack();
     int elem;
 
-    // Separate elements into evenStack and oddStack
     while (!isEmpty(*s)) {
         elem = s->data[s->top];
         if (elem % 2 == 0) {
@@ -96,14 +95,16 @@ void stack_evenNumber(StackArrayList *s) {
         stack_pop(s);
     }
 
-    // Print elements from evenStack
     printf("Even Numbers:\n");
     while (!isEmpty(evenStack)) {
-        elem = stack_peek(evenStack);  // Peek at the top element of evenStack
-        //printf("%d\n", elem);
-        stack_pop(&evenStack);  // Pop the top element from evenStack
+        elem = stack_peek(evenStack); 
+        stack_pop(&evenStack);
     }
+    printf("\n");
 
-    // If you want to use the oddStack or do something with it, you can do it here
+    while(!isEmpty(oddStack)){
+    	stack_push(s, stack_peek(oddStack));
+    	stack_pop(&oddStack);
+	}
 }
 
