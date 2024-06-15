@@ -29,9 +29,12 @@ int main(int argc, char *argv[]) {
 	stack_evenNumber(&stack);
 */	
 	
-	StackLinkedList sll = sll_createStack();
-	//sll_stack_push(&sll, 10);
-	//sll_stack_push(&sll, 20);
+	NodePtr sll = sll_createStack();
+	sll_visualize(sll);
+	sll_stack_push(&sll, 10);
+	sll_visualize(sll);
+	sll_stack_push(&sll, 20);
+	sll_visualize(sll);
 	//sll_stack_push(&sll, 30);
 	//sll_visualize(sll);
 

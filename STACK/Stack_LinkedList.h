@@ -6,24 +6,20 @@
 typedef struct node {
     int data;
     struct node *next;
-} SLL, *SLLPtr;
+} Node, *NodePtr;
 
-typedef struct {
-    SLLPtr top;
-} StackLinkedList;
+NodePtr sll_createStack();
 
-StackLinkedList sll_createStack();
+bool sll_isEmpty(NodePtr stack);
 
-bool sll_isEmpty(StackLinkedList s);
-/*
-bool sll_stack_push(StackLinkedList *s, int elem);
+bool sll_stack_push(NodePtr *stack, int elem);
 
-bool sll_stack_pop(StackLinkedList *s);
-int sll_stack_peek(StackLinkedList s);
+bool sll_stack_pop(NodePtr *stack);
+int sll_stack_peek(NodePtr stack);
 
-void sll_display(StackLinkedList s);
-void sll_visualize(StackLinkedList s);
-void sll_stack_evenNumber(StackLinkedList *s);
-*/
+void sll_display(NodePtr stack);
+void sll_visualize(NodePtr stack);
+void sll_stack_evenNumber(NodePtr *stack);
+
 #endif
 
