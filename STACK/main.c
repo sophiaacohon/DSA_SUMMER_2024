@@ -8,7 +8,8 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-/*
+
+	printf("STACK USING ARRAYS\n");
 	StackArrayList stack = createStack();
 	stack_peek(stack);
 	stack_push(&stack, 21);
@@ -27,19 +28,31 @@ int main(int argc, char *argv[]) {
 	display(stack);
 	visualize(stack);
 	stack_evenNumber(&stack);
-*/	
 	
+	printf("\nSTACK USING LINKED LISTS\n");
 	NodePtr sll = sll_createStack();
 	sll_visualize(sll);
-	sll_stack_push(&sll, 10);
+	sll_stack_push(&sll, 21);
 	sll_visualize(sll);
-	sll_stack_push(&sll, 20);
+	sll_stack_push(&sll, 43);
 	sll_visualize(sll);
-	sll_stack_push(&sll, 30);
+	sll_stack_push(&sll, 1);
 	sll_visualize(sll);
 	sll_stack_pop(&sll);
 	sll_visualize(sll);
-	sll_stack_peek(sll);
+	printf("PEEK: %d\n", sll_stack_peek(sll));
+	sll_visualize(sll);
+	sll_stack_push(&sll, 88);
+	sll_stack_push(&sll, 99);
+	sll_stack_push(&sll, 102);
+	sll_stack_push(&sll, 61);
+	sll_stack_push(&sll, 4);
+	sll_stack_push(&sll, 94);
+	sll_visualize(sll);
+	sll_display(&sll);
+	sll_stack_evenNumber(&sll);
+	//sll_visualize(sll);
+	sll_display(&sll);
 
 	
 	return 0;

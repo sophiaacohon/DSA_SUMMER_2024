@@ -37,6 +37,7 @@ bool sll_stack_push(NodePtr *stack, int elem) {
 bool sll_stack_pop(NodePtr *stack){
     if(sll_isEmpty(*stack)){
         printf("Stack Linked List is empty.\n");
+        return false;
     }
     else{
         if((*stack)->next == NULL){
@@ -53,29 +54,55 @@ bool sll_stack_pop(NodePtr *stack){
             prev->next = NULL;
             free(trav);
         }
+        return true;
     }
 }
 
 
-void sll_stack_peek(NodePtr stack){
+int sll_stack_peek(NodePtr stack){
     if(sll_isEmpty(stack)){
         printf("Stack Linked List is Empty\n");
+        return 0;
     } else {
         NodePtr trav = stack;
         while(trav->next!= NULL){
             trav = trav->next;
         }
-        printf("Top element: %d\n", trav->data);
+        return trav->data;
     }
 }
 
-void sll_display(NodePtr stack);
+void sll_display(NodePtr *stack) {
+    if (sll_isEmpty(*stack)) {
+        printf("Stack Linked List is Empty\n");
+        return;
+    }
+
+    NodePtr temp = sll_createStack();
+    NodePtr trav = *stack;
+
+	printf("\nDISPLAY: \n");
+	while (trav != NULL) {
+	    int elem = trav->data;
+	    printf("%d\n", elem);
+	    sll_stack_push(&temp, elem);
+	    trav = trav->next;
+	}
+	
+	while (!sll_isEmpty(temp)) {
+	    int elem = sll_stack_peek(temp);
+	    sll_stack_push(&stack, elem);
+	    sll_stack_pop(&temp);
+	}
+}
+
 
 
 void sll_visualize(NodePtr stack) {
     if (sll_isEmpty(stack)) {
         printf("Stack Linked List is Empty.\n");
     } else {
+    	printf("\nVISUALIZE");
         printf("\n INDEX        VALUE\n");
         int index = 0;
         NodePtr trav = stack;
@@ -92,7 +119,35 @@ void sll_visualize(NodePtr stack) {
     }
 }
 
+void sll_stack_evenNumber(NodePtr *stack) {
+    NodePtr evenStack = sll_createStack();
+    NodePtr tempStack = sll_createStack();
 
+    // Separate even and odd elements
+    while (!sll_isEmpty(*stack)) {
+        int elem = sll_stack_peek(*stack);
+        sll_stack_pop(stack);
+        if (elem % 2 == 0) {
+            sll_stack_push(&evenStack, elem);
+        } else {
+            sll_stack_push(&tempStack, elem);
+        }
+    }
 
-void sll_stack_evenNumber(NodePtr *stack);
+    // Restore odd elements back to the original stack
+    while (!sll_isEmpty(tempStack)) {
+        int elem = sll_stack_peek(tempStack);
+        sll_stack_pop(&tempStack);
+        sll_stack_push(stack, elem);
+    }
+
+    // Print the even numbers in the new stack
+    printf("\nEVEN NUMBERS:");
+    sll_display(&evenStack);
+
+    // Free the memory allocated for the even stack
+    while (!sll_isEmpty(evenStack)) {
+        sll_stack_pop(&evenStack);
+    }
+}
 
