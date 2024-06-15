@@ -39,6 +39,7 @@ int main(int argc, char *argv[]) {
 	sll_visualize(sll);
 	sll_stack_pop(&sll);
 	sll_visualize(sll);
+	sll_stack_peek(sll);
 
 	
 	return 0;

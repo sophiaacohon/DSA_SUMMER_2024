@@ -15,7 +15,7 @@ bool sll_isEmpty(NodePtr stack);
 bool sll_stack_push(NodePtr *stack, int elem);
 
 bool sll_stack_pop(NodePtr *stack);
-int sll_stack_peek(NodePtr stack);
+void sll_stack_peek(NodePtr stack);
 
 void sll_display(NodePtr stack);
 void sll_visualize(NodePtr stack);
