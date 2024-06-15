@@ -12,7 +12,10 @@ typedef struct {
     SLLPtr top;
 } StackLinkedList;
 
-StackLinkedList createStack();
+StackLinkedList sll_createStack(){
+	StackLinkedList sll;
+	sll.top = NULL;
+}
 
 bool sll_isEmpty(StackLinkedList s);
 

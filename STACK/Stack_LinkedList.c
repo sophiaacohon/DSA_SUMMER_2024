@@ -4,7 +4,7 @@
 #include "Stack_LinkedList.h"
 
 
-StackLinkedList createStack();
+StackLinkedList sll_createStack();
 
 bool sll_isEmpty(StackLinkedList s);
 
