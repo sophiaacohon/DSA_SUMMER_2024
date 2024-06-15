@@ -35,8 +35,10 @@ int main(int argc, char *argv[]) {
 	sll_visualize(sll);
 	sll_stack_push(&sll, 20);
 	sll_visualize(sll);
-	//sll_stack_push(&sll, 30);
-	//sll_visualize(sll);
+	sll_stack_push(&sll, 30);
+	sll_visualize(sll);
+	sll_stack_pop(&sll);
+	sll_visualize(sll);
 
 	
 	return 0;

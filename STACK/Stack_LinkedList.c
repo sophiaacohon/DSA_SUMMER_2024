@@ -34,7 +34,29 @@ bool sll_stack_push(NodePtr *stack, int elem) {
 
 
 
-bool sll_stack_pop(NodePtr *stack);
+bool sll_stack_pop(NodePtr *stack){
+    if(sll_isEmpty(*stack)){
+        printf("Stack Linked List is empty.\n");
+    }
+    else{
+        if((*stack)->next == NULL){
+            free(*stack);
+            *stack = NULL;
+        }
+        else{
+            NodePtr prev = NULL;
+            NodePtr trav = *stack;
+            while(trav->next != NULL){
+                prev = trav;
+                trav = trav->next;
+            }
+            prev->next = NULL;
+            free(trav);
+        }
+    }
+}
+
+
 int sll_stack_peek(NodePtr stack);
 
 void sll_display(NodePtr stack);
