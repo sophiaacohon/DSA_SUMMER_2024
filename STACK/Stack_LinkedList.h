@@ -1,26 +1,28 @@
 #ifndef STACK_LINKEDLIST
 #define STACK_LINKEDLIST
 
-#include<stdbool.h>
-#define MAX 10
+#include <stdbool.h>
 
-typedef struct node{
-	int data;
-	struct node *next;
+typedef struct node {
+    int data;
+    struct node *next;
 } SLL, *SLLPtr;
 
-bool isEmpty(SLLPtr s);
+typedef struct {
+    SLLPtr top;
+} StackLinkedList;
 
-void initSLLStack(SLLPtr *s);
+StackLinkedList createStack();
 
-bool sll_stack_push(SLLPtr *s, int elem);
-bool sll_stack_pop(SLLPtr *s);
-int sll_stack_peek(SLLPtr s);
+bool sll_isEmpty(StackLinkedList s);
 
-void display(SLLPtr s);
+bool sll_stack_push(StackLinkedList *s, int elem);
+bool sll_stack_pop(StackLinkedList *s);
+int sll_stack_peek(StackLinkedList s);
 
-void visualize(SLLPtr s);
-
-void sll_stack_evenNumber(SLLPtr *s);
+void sll_display(StackLinkedList s);
+void sll_visualize(StackLinkedList s);
+void sll_stack_evenNumber(StackLinkedList *s);
 
 #endif
+
