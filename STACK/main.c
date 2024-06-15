@@ -50,9 +50,9 @@ int main(int argc, char *argv[]) {
 	sll_stack_push(&sll, 94);
 	sll_visualize(sll);
 	sll_display(&sll);
-	sll_stack_evenNumber(&sll);
+	//sll_stack_evenNumber(&sll);
 	//sll_visualize(sll);
-	sll_display(&sll);
+	//sll_display(&sll);
 
 	
 	return 0;

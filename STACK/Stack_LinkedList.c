@@ -119,6 +119,7 @@ void sll_visualize(NodePtr stack) {
     }
 }
 
+/*
 void sll_stack_evenNumber(NodePtr *stack) {
     NodePtr evenStack = sll_createStack();
     NodePtr tempStack = sll_createStack();
@@ -150,4 +151,4 @@ void sll_stack_evenNumber(NodePtr *stack) {
         sll_stack_pop(&evenStack);
     }
 }
-
+*/
