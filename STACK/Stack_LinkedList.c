@@ -4,9 +4,15 @@
 #include "Stack_LinkedList.h"
 
 
-StackLinkedList sll_createStack();
+StackLinkedList sll_createStack(){
+	StackLinkedList newStack;
+	newStack.top = NULL;
+	return newStack;
+}
 
-bool sll_isEmpty(StackLinkedList s);
+bool sll_isEmpty(StackLinkedList s){
+	return (s.top == NULL)? true: false;
+}
 
 bool sll_stack_push(StackLinkedList *s, int elem);
 bool sll_stack_pop(StackLinkedList *s);

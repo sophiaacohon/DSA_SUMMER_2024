@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "Stack_Array.h"
 #include "Stack_LinkedList.h"
 //#include "Stack_Array.c"
@@ -7,7 +8,7 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	/*
+/*
 	StackArrayList stack = createStack();
 	stack_peek(stack);
 	stack_push(&stack, 21);
@@ -26,15 +27,14 @@ int main(int argc, char *argv[]) {
 	display(stack);
 	visualize(stack);
 	stack_evenNumber(&stack);
-	*/
+*/	
 	
-	StackLinkedList sll; 
-	initSLLStack(&sll);
-	sll_stack_push(&sll, 10);
-	sll_stack_push(&sll, 20);
-	sll_stack_push(&sll, 30);
-	sll_visualize(sll);
-	
+	StackLinkedList sll = sll_createStack();
+	//sll_stack_push(&sll, 10);
+	//sll_stack_push(&sll, 20);
+	//sll_stack_push(&sll, 30);
+	//sll_visualize(sll);
+
 	
 	return 0;
 }
