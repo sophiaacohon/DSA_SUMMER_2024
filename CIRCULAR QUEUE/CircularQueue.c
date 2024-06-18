@@ -26,9 +26,7 @@ void enqueue(CircularQ *q, int n) {
     q->rear = (q->rear + 1) % MAX;
     q->data[q->rear] = n;
 
-    printf("ENQUEUE!! \n");
-    printf("FRONT: %d\n", q->front);
-    printf("REAR: %d\n", q->rear);
+    printf("Enqueued value: %d \n", n);
 }
 
 void dequeue(CircularQ *q) {
@@ -43,13 +41,12 @@ void dequeue(CircularQ *q) {
     } else {
         q->front = (q->front + 1) % MAX;
     }
-
-    printf("DEQUEUE\n");
-    printf("Dequeued value: %d\n", dequeuedValue);
+    
+    printf("Dequeued value: %d\n", dequeuedValue);/*
     if (!isEmpty(*q)) {
         printf("FRONT: %d\n", q->front);
         printf("FRONT VALUE: %d\n", q->data[q->front]);
-    }
+    } //debug */
 }
 
 int front(CircularQ *q){

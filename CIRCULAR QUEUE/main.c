@@ -20,6 +20,32 @@ int main(int argc, char *argv[]) {
 	printf("FRONT: %d\n", front(&cq));
 	printf("REAR: %d\n", rear(&cq));
 	visualize(&cq);
-		
+	enqueue(&cq, 60);
+	enqueue(&cq, 70);
+	enqueue(&cq, 80);
+	enqueue(&cq, 90);
+	printf("FRONT: %d\n", front(&cq));
+	printf("REAR: %d\n", rear(&cq));
+	visualize(&cq);
+	enqueue(&cq, 100);
+	enqueue(&cq, 110);
+	printf("FRONT: %d\n", front(&cq));
+	printf("REAR: %d\n", rear(&cq));
+	visualize(&cq);
+	enqueue(&cq, 120);
+	dequeue(&cq);
+	dequeue(&cq);
+	dequeue(&cq);
+	printf("FRONT: %d\n", front(&cq));
+	printf("REAR: %d\n", rear(&cq));
+	visualize(&cq);
+	dequeue(&cq);
+	enqueue(&cq, 130);
+	enqueue(&cq, 140);
+	enqueue(&cq, 150);
+	printf("FRONT: %d\n", front(&cq));
+	printf("REAR: %d\n", rear(&cq));
+	visualize(&cq);
+	
 	return 0;
 }
