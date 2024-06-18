@@ -8,9 +8,10 @@
 int main(int argc, char *argv[]) {
 	CircularQ cq;
 	initQueue(&cq);
-	visualize(cq);
+	visualize(&cq);
 	enqueue(&cq, 10);
 	printf("FRONT: %d\n", front(&cq));
+	visualize(&cq);
 	enqueue(&cq, 20);
 	enqueue(&cq, 30);
 	enqueue(&cq, 40);
@@ -18,7 +19,7 @@ int main(int argc, char *argv[]) {
 	dequeue(&cq);
 	printf("FRONT: %d\n", front(&cq));
 	printf("REAR: %d\n", rear(&cq));
-	visualize(cq);
-	
+	visualize(&cq);
+		
 	return 0;
 }
