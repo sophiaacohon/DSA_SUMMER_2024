@@ -72,14 +72,17 @@ void sll_display(NodePtr head) {
 }
 
 void sll_visualize(NodePtr head){
+	printf("\nVISUALIZE: \n");
+	int index=0;
 	if(sll_isEmpty(head)){
 		printf("Stack is Empty.\n");
 	}
 	else{
 		NodePtr trav;
-		printf("VALUE\n");
+		printf("INDEX     VALUE\n");
 		for(trav = head; trav != NULL; trav = trav->next){
-			printf("%d",trav->data);
+			printf("  %d        %d", index, trav->data);
+			index++;
 			if(trav == head){
 				printf("        <-- TOP");
 			}
