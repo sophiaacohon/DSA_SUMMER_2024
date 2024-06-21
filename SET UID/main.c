@@ -20,8 +20,12 @@ https://youtu.be/RVqdK6WAjUI?si=S-MWAAvpvKb4DYop
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	SET s;
-	initSet(s);
-	display(s);
+	SET A;
+	initSet(A);
+	display(A);
+	insertMember(A);
+	display(A);
+	deleteMember(A);
+	display(A);
 	return 0;
 }

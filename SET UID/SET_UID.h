@@ -10,5 +10,12 @@ void initSet(SET s);
 
 void display(SET s);
 
+void insertMember(SET s);
+
+void Union(SET A, SET B);
+
+void intersection(SET A, SET B);
+
+void difference(SET A, SET B);
 
 #endif
