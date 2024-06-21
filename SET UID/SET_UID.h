@@ -8,16 +8,16 @@ typedef int SET[MAX];
 
 void initSet(SET s);
 
-void display(SET s);
+void displaySet(SET s);
 
-void insertMember(SET s, int n);
+void insertElement(SET *s, int n);
 
-void deleteMember(SET s, int n);
+void deleteElememt(SET *s, int n);
 
-void Union(SET A, SET B);
+void unionSet(SET *A, SET *B);
 
-void intersection(SET A, SET B);
+void intersectionSet(SET *A, SET *B);
 
-void difference(SET A, SET B);
+void differenceSet(SET *A, SET *B);
 
 #endif

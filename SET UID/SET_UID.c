@@ -11,9 +11,8 @@ void initSet(SET s){
 	}
 }
 
-void display(SET s){
+void displaySet(SET s){
 	int i;
-	printf("SET: ");
 	printf("{");
 	for(i =0; i<MAX; i++){
 		if(i == MAX-1){
@@ -23,79 +22,74 @@ void display(SET s){
 			printf("%d, ", s[i]);
 		}
 	}
-	printf("}");
+	printf("}\n");
+	for(i =0; i<MAX; i++){
+		if(s[i] == 1){
+			printf(" %d ", i);
+		}
+		else{
+			printf("   ");
+		}
+	}
 	printf("\n");
 }
 
-void insertMember(SET s, int n){
-	if(n > MAX || n < 0){
+void insertElement(SET *s, int n){
+	if(n >= 0 && n < MAX){
+		(*s)[n] = 1;
+	}
+	else{
 		printf("Out of bounds.\n");
 		return;
 	}
-	s[n] = 1;
-	/*
-	int i, m;
-	printf("\nHow many members would you like to add? ");
-	scanf("%d", &m);
-	if(m>MAX){
-		printf("Number of members exceeds maximum number of members.\n");
-		return;
-	}
-	int mem[m];
-	//fflush(stdin);
-	printf("\nInsert %d members: \n", m);
-	for(i=0; i<m; i++){
-		printf("Member no. %d: ", i+1);
-		scanf("%d", &mem[i]);
-	}
-	for (i = 0; i < m; i++) {
-		s[mem[i]] = 1;
-    }
-    // its better to add int parameter than user input this lol
-    */
 }
 
-void deleteMember(SET s, int n){
-	if(n > MAX || n < 0){
+void deleteElement(SET *s, int n){
+	if(n >= 0 && n < MAX){
+		(*s)[n] = 0;
+	}
+	else{
 		printf("Out of bounds.\n");
 		return;
 	}
-	s[n] = 0;
-	/*
-	int i, d;
-	printf("How many members would you like to delete? ");
-	scanf("%d", &d);
-	if(d>MAX){
-		printf("Number of members to be deleted exceeds maximum number of elements in a set.\n");
-		return;
-	}
-	int del[d];
-	printf("Enter element numbers to delete: ");
-	for(i=0; i<d; i++){
-		printf("Member no. %d: ", i+1);
-		scanf("%d", &del[i]);
-	}
-	for(i=0; i<d; i++){
-		s[del[i]] = 0;
-	}
-	// change this and add int parameter
-	*/
 }
 
-void Union(SET A, SET B){
+void unionSet(SET *A, SET *B){
 	SET C;
 	initSet(C);
 	int i;
-	//will add insert member function here
-	//need to change function parameters and function body to adjust to parameters
+	for(i=0; i<MAX; i++){
+		C[i] = (*A)[i] | (*B)[i];
+	}
+	printf("\nA UNION B \n");
+	displaySet(C);
 	//union: elements in A and elements in B are present in set C.
 }
 
-void intersection(SET A, SET B);
+void intersectionSet(SET *A, SET *B){
+	SET C;
+	initSet(C);
+	int i;
+	for(i=0; i<MAX; i++){
+		C[i] = (*A)[i] & (*B)[i];
+	}
+	printf("\nA INTERSECTION B\n");
+	displaySet(C);
+}
 //intersection: the elements that are present in both A and B will be inserted in set C
-//im tired
 
-void difference(SET A, SET B);
+
+void differenceSet(SET *A, SET *B){
+	SET C;
+	initSet(C);
+	int i;
+	for(i=0; i<MAX; i++){
+		if((*A)[i] == 1 && (*B)[i] == 0){
+			C[i] = 1;
+		}
+	}
+	displaySet(C);
+}
 //elements present in A only will be present in set C
-// fdssdjfsfssdksfsdsfjhsdfsd
+
 
