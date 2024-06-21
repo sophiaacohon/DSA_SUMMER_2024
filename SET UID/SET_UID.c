@@ -13,6 +13,7 @@ void initSet(SET s){
 
 void display(SET s){
 	int i;
+	printf("SET: ");
 	printf("{");
 	for(i =0; i<MAX; i++){
 		if(i == MAX-1){
@@ -23,9 +24,16 @@ void display(SET s){
 		}
 	}
 	printf("}");
+	printf("\n");
 }
 
-void insertMember(SET s){
+void insertMember(SET s, int n){
+	if(n > MAX || n < 0){
+		printf("Out of bounds.\n");
+		return;
+	}
+	s[n] = 1;
+	/*
 	int i, m;
 	printf("\nHow many members would you like to add? ");
 	scanf("%d", &m);
@@ -44,9 +52,16 @@ void insertMember(SET s){
 		s[mem[i]] = 1;
     }
     // its better to add int parameter than user input this lol
+    */
 }
 
-void deleteMember(SET s){
+void deleteMember(SET s, int n){
+	if(n > MAX || n < 0){
+		printf("Out of bounds.\n");
+		return;
+	}
+	s[n] = 0;
+	/*
 	int i, d;
 	printf("How many members would you like to delete? ");
 	scanf("%d", &d);
@@ -64,6 +79,7 @@ void deleteMember(SET s){
 		s[del[i]] = 0;
 	}
 	// change this and add int parameter
+	*/
 }
 
 void Union(SET A, SET B){

@@ -23,9 +23,17 @@ int main(int argc, char *argv[]) {
 	SET A;
 	initSet(A);
 	display(A);
-	insertMember(A);
+	
+	insertMember(A, 9);
+	insertMember(A, 8);
+	insertMember(A, 4);
+	insertMember(A, 2);
+	insertMember(A, 3);
+	insertMember(A, 1);
 	display(A);
-	deleteMember(A);
+	deleteMember(A, 9);
+	deleteMember(A, 4);
+	deleteMember(A, 3);
 	display(A);
 	return 0;
 }

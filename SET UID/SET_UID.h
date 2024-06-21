@@ -10,7 +10,9 @@ void initSet(SET s);
 
 void display(SET s);
 
-void insertMember(SET s);
+void insertMember(SET s, int n);
+
+void deleteMember(SET s, int n);
 
 void Union(SET A, SET B);
 
