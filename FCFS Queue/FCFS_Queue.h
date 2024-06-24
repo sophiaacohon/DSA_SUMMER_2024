@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 typedef struct{
+	int pID; //process ID
 	int AT; //arrival time
 	int BT; //burst time
 	int ET; //execution time
@@ -25,15 +26,18 @@ void initQueue(ProcessQueue *q);
 
 bool isEmpty(ProcessQueue *q);
 
-ProcessQueue addProcess(ProcessQueue *q, int a, int b);
+NodePtr peek(ProcessQueue *q);
+
+NodePtr addProcess(int a, int b, int ID);
+
+void enqueue(ProcessQueue *q, NodePtr newNode);
+
+NodePtr dequeue(ProcessQueue *q);
 
 void visualize(ProcessQueue *q);
 
-void enqueue(ProcessQueue *q);
-
-void dequeue(ProcessQueue *q);
-
 void sort(ProcessQueue *q);
 
+ProcessQueue calc(ProcessQueue *q);
 
 #endif
