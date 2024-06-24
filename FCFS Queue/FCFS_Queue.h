@@ -2,6 +2,7 @@
 #define FCFS_QUEUE
 
 #include <stdbool.h>
+#include <math.h>
 typedef struct{
 	int pID; //process ID
 	int AT; //arrival time
@@ -38,6 +39,6 @@ void visualize(ProcessQueue *q);
 
 void sort(ProcessQueue *q);
 
-ProcessQueue calc(ProcessQueue *q);
+ProcessQueue calculate(ProcessQueue *q);
 
 #endif

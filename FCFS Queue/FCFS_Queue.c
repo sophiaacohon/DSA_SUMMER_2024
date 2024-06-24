@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 #include "FCFS_Queue.h"
 
 void initQueue(ProcessQueue *q){
@@ -25,7 +26,7 @@ NodePtr peek(ProcessQueue *q){
 
 NodePtr addProcess(int a, int b, int ID){
 	NodePtr newNode = malloc(sizeof(Node));
-	printf("Made a node\n");
+	//printf("Made a node\n"); //debug
 	newNode->data.pID = ID;
 	newNode->data.AT = a;
 	newNode->data.BT = b;
@@ -63,7 +64,7 @@ NodePtr dequeue(ProcessQueue *q){
 		}
 		
 		temp->next = NULL;
-		printf("temp AT: %d", temp->data.AT);
+		//printf("temp AT: %d", temp->data.AT);
 		return temp;
 	}
 }
@@ -88,7 +89,10 @@ void visualize(ProcessQueue *q){
 }
 
 void sort(ProcessQueue *q) {
-    if (isEmpty(q)) return;
+    if (isEmpty(q)){
+    	printf("Queue is Empty.\n");
+    	return;
+	} 
 
     ProcessQueue sortedList;
     initQueue(&sortedList);
@@ -125,11 +129,58 @@ void sort(ProcessQueue *q) {
     q->rear = sortedList.rear;
 }
 
+ProcessQueue calculate(ProcessQueue *q){
+    if(isEmpty(q)){
+        printf("Queue is Empty.\n");
+        return *q; 
+    }
+    
+    ProcessQueue calculatedList;
+    initQueue(&calculatedList);
+    
+    int begin = 0; // Initialize begin inside the loop for the first iteration
+    double totalTAT = 0.0;
+    double totalWT = 0.0; 
+    int numProcesses = 0; // Keep track of the number of processes processed
+    
+    NodePtr trav = q->front;
+    while(trav!= NULL){
+        trav->data.ET = (begin >= trav->data.AT)? begin : trav->data.AT;
 
-ProcessQueue calc(ProcessQueue *q){
-	if(isEmpty(q)){
-		return;
-	}
-	int begin = 0;
+        trav->data.CT = trav->data.ET + trav->data.BT;
+        
+        begin = trav->data.CT;
+        
+        trav->data.TAT = trav->data.CT - trav->data.AT;
+        
+        trav->data.WT = trav->data.TAT - trav->data.BT;
+
+        totalTAT += trav->data.TAT;
+        totalWT += trav->data.WT;
+        
+        enqueue(&calculatedList, trav);
+
+        trav = trav->next;
+        numProcesses++; // Increment the count of processed processes
+    }
+    
+    // Ensure we don't divide by zero and handle cases where the queue is empty
+    if(numProcesses > 0) {
+        double avgTAT = totalTAT / numProcesses;
+        double avgWT = totalWT / numProcesses;
+        
+        printf("\nCalculated Table: \n");
+        visualize(&calculatedList);
+        
+        printf("Average Turnaround Time: %.2f\n", avgTAT);
+        printf("Average Waiting Time: %.2f\n", avgWT);
+    } else {
+        printf("No processes were processed.\n");
+    }
+    
+    calculatedList.front = calculatedList.front->next;
+    calculatedList.rear = calculatedList.rear->next;
+    
+    return calculatedList;
 }
 

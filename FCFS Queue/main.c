@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 #include "FCFS_Queue.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -26,23 +27,17 @@ int main(int argc, char *argv[]) {
 		}
 		enqueue(&q, newNode);
 		
-		//visualize(&q);
 		ID++;
-		
-		// add the function call to create a new node and add new data to it
-		//then add the function call to enqueue the node into the queue
+
 	}
+	printf("\nVisualization of Processes: \n");
 	visualize(&q);
 	
 	sort(&q);
-	
+	printf("\nSorted According to Arrival Time: \n");
 	visualize(&q);
 	
-	
-	//next, i want to show the process nodes added into the queue
-	//then i want to sort the process nodes according to arrival time
-	// and start computing for ET, CT, WT, TAT, also the avg WT and avg TAT
-	// and then show the complete and computed process table.
-	//welp, the wifi aint working.
+	calculate(&q);
+
 	return 0;
 }
