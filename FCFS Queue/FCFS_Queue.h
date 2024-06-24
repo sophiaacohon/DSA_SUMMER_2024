@@ -12,7 +12,7 @@ typedef struct{
 } Process;
 
 typedef struct node{
-	Process PCB;
+	Process data;
 	struct node *next;
 } Node, *NodePtr;
 
@@ -25,7 +25,11 @@ void initQueue(ProcessQueue *q);
 
 bool isEmpty(ProcessQueue *q);
 
-void enqueue(ProcessQueue *q, int a, int b);
+ProcessQueue addProcess(ProcessQueue *q, int a, int b);
+
+void visualize(ProcessQueue *q);
+
+void enqueue(ProcessQueue *q);
 
 void dequeue(ProcessQueue *q);
 
