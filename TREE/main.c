@@ -9,16 +9,17 @@ int main(int argc, char *argv[]) {
 	
 	NodePtr root = NULL;
 	
-	Product pp [] = {{"Mango", 25.00, 50, {01, 07, 2024}},
-					 {"Banana", 30.00, 25, {31, 07, 2024}},
-					 {"Pineapple", 70.00, 50, {31, 07, 2024}},
-					 {"Watermelon", 100.00, 50, {31, 07, 2024}},
-					 {"Sardines", 50.00, 50, {31, 07, 2024}},
-					 {"Broccoli", 40.00, 50, {31, 07, 2024}},
-					 {"Cantaloupe", 80.00, 50, {31, 07, 2024}},
-					 {"Rice", 20.00, 50, {31, 07, 2024}},
-					 {"Peach", 35.00, 50, {31, 07, 2024}},
-					 {"Strawberry", 150.00, 100, {31, 07, 2024}},
+	Product pp [] = {{"Mango", 22.99, 60, {10, 8, 2024}},
+				    {"Banana", 28.50, 40, {20, 8, 2024}},
+				    {"Pineapple", 72.00, 65, {30, 8, 2024}},
+				    {"Watermelon", 102.00, 65, {01, 9, 2024}},
+				    {"Sardines", 47.00, 65, {10, 9, 2024}},
+				    {"Broccoli", 43.00, 65, {20, 9, 2024}},
+				    {"Cantaloupe", 83.00, 65, {31, 7, 2024}},
+				    {"Rice", 21.00, 65, {10, 10, 2024}},
+				    {"Peach", 37.00, 65, {20, 10, 2024}},
+				    {"Strawberry", 147.00, 115, {30, 10, 2024}},
+				    {"Apple", 53.00, 215, {10, 11, 2024}}
 					 //{"Strawberry", 150.00, 100, {31, 07, 2024}}
 	
 	};
@@ -28,13 +29,35 @@ int main(int argc, char *argv[]) {
 	for(i=0; i<count; i++){
 		addNode(&root, pp[i]);
 	}
-	printf("Something");
+	
+	printf("ORIGINAL LISTS\n\n");
+	printf("DEPTH FIRST SEARCH\n");
+	printf("\nINORDER TRAVERSAL:");
 	inorder(root);
 	
+	printf("\n\nPREORDER TRAVERSAL:");
+	preorder(root);
 	
-	printf("\n\n delete\n");
+	printf("\n\nPOSTORDER TRAVERSAL:");
+	postorder(root);
+	
+	//printf("\n\nBREADTH FIRST SEARCH");
+	//BFS(root);
+	
+	printf("\n\nDELETE THE ROOT: MANGO");
 	deleteNode(&root, pp[0]);
+	
+	printf("\n\nAfter Deletion\n");
+	printf("\nDEPTH FIRST SEARCH\n");
+	printf("INORDER TRAVERSAL:");
 	inorder(root);
+	printf("\n\nPREORDER TRAVERSAL:");
+	preorder(root);
+	printf("\n\nPOSTORDER TRAVERSAL:");
+	postorder(root);
+	
+	printf("\n\nBREADTH FIRST SEARCH");
+	BFS(root);
 	return 0;
 }
 
