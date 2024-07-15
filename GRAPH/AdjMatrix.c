@@ -6,11 +6,16 @@
 #define COL 5
 #define NODE 65
 
-void createMatrix(int row, int col, int matrix[row][col]){
+void initMatrix(int row, int col, int matrix[row][col]){
 	int i, j;
 	for(i=0; i<ROW; i++){
 		for(j=0; j<COL; j++){
-			matrix[i][j] = 0;
+			if(i == j){
+				matrix[i][j] = 99;
+			}
+			else{
+				matrix[i][j] = 0;
+			}
 		}
 	}
 }
@@ -30,18 +35,17 @@ void displayMatrix(int row, int col, int matrix[row][col]){
 	int i, j, d;
 	int v1 = NODE;
 	int v2 = NODE;
-	printf("DISPLAYING THE ADJACENCY MATRIX: \n  ");
-	//printf("  ");
+	printf("DISPLAYING THE ADJACENCY MATRIX: \n    ");
 	for(d=0; d<col; d++){
-		printf("%c ", v2);
+		printf(" %c ", v2);
 		v2++;
 	}
 	printf("\n");
 	for(i=0; i<row; i++){
-		printf("%c ", v1);
+		printf(" %c ", v1);
 		for(j=0; j<col; j++){
 			
-			printf("%d ", matrix[i][j]);
+			printf(" %d ", matrix[i][j]);
 		}
 		v1++;
 		printf("\n");

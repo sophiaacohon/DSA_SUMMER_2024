@@ -17,8 +17,10 @@ E: B, D
 
 
 int main(int argc, char *argv[]) {
+	
+	//ADJACENCY MATRIX
 	int matrix[ROW][COL];
-	createMatrix(ROW, COL, matrix);
+	initMatrix(ROW, COL, matrix);
 	insertMatrixEdge(matrix, 0, 1);
 	insertMatrixEdge(matrix, 0, 2);
 	insertMatrixEdge(matrix, 0, 3);
@@ -29,5 +31,33 @@ int main(int argc, char *argv[]) {
 	insertMatrixEdge(matrix, 3, 4);
 	//insertMatrixEdge(ROW, COL, matrix, 6, 8);
 	displayMatrix(ROW, COL, matrix);
+	printf("\n");
+	//*/
+	
+	//ADJACENCY LIST
+	char **list = initList(ROW);
+	insertList('A', 'B', list);
+	insertList('A', 'C', list);
+	insertList('A', 'D', list);
+	
+	insertList('B', 'A', list);
+	insertList('B', 'C', list);
+	insertList('B', 'D', list);
+	insertList('B', 'E', list);
+	
+	insertList('C', 'A', list);
+	insertList('C', 'B', list);
+	insertList('C', 'D', list);
+	
+	insertList('D', 'A', list);
+	insertList('D', 'B', list);
+	insertList('D', 'C', list);
+	insertList('D', 'E', list);
+	
+	insertList('E', 'B', list);
+	insertList('E', 'D', list);
+	
+	displayList(ROW, list);
+	
 	return 0;
 }
