@@ -12,7 +12,7 @@ i want to use an array because why not
 */
 
 void initMatrix(int row, int col, int matrix[row][col]);
-void insertMatrixEdge(int matrix[ROW][COL], int v1, int v2);
+void insertMatrixEdge(int matrix[ROW][COL], char v1, char v2);
 void displayMatrix(int row, int col, int matrix[row][col]);
 
 #endif

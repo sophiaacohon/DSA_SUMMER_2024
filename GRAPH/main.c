@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "AdjMatrix.h"
+#include "AdjList.h"
 
 #define ROW 5
 #define COL 5
@@ -15,24 +17,26 @@ D: A, B, C, E
 E: B, D
 */
 
-
 int main(int argc, char *argv[]) {
+	
+	//DISPLAY THE GIVEN
+	printf("UNDIRECTED GRAPH:\n A: B, C, D\n B: A, C, D, E\n C: A, B, D\n D: A, B, C, E\n E: B, D\n\n");
 	
 	//ADJACENCY MATRIX
 	int matrix[ROW][COL];
 	initMatrix(ROW, COL, matrix);
-	insertMatrixEdge(matrix, 0, 1);
-	insertMatrixEdge(matrix, 0, 2);
-	insertMatrixEdge(matrix, 0, 3);
-	insertMatrixEdge(matrix, 1, 2);
-	insertMatrixEdge(matrix, 1, 3);
-	insertMatrixEdge(matrix, 1, 4);
-	insertMatrixEdge(matrix, 2, 3);
-	insertMatrixEdge(matrix, 3, 4);
+	insertMatrixEdge(matrix, 'A', 'B');
+	insertMatrixEdge(matrix, 'A', 'C');
+	insertMatrixEdge(matrix, 'A', 'D');
+	insertMatrixEdge(matrix, 'B', 'C');
+	insertMatrixEdge(matrix, 'B', 'D');
+	insertMatrixEdge(matrix, 'B', 'E');
+	insertMatrixEdge(matrix, 'C', 'D');
+	insertMatrixEdge(matrix, 'D', 'E');
 	//insertMatrixEdge(ROW, COL, matrix, 6, 8);
 	displayMatrix(ROW, COL, matrix);
 	printf("\n");
-	//*/
+	
 	
 	//ADJACENCY LIST
 	char **list = initList(ROW);

@@ -28,12 +28,12 @@ char** initList(int row){
 }
 
 void insertList(char v1, char v2, char** list){
-	int idx1 = (int)v1 - 65;
+	int idx = (int)v1 - NODE;
 	//int idx2 = (int)v2 - 65;
 	int j;
 	for(j=0; j<COL; j++){
-		if(list[idx1][j] == '\0'){
-			list[idx1][j] = v2;
+		if(list[idx][j] == '\0'){
+			list[idx][j] = v2;
 			break;
 		}
 	}

@@ -20,13 +20,15 @@ void initMatrix(int row, int col, int matrix[row][col]){
 	}
 }
 
-void insertMatrixEdge(int matrix[ROW][COL], int v1, int v2){
-	if(v1>ROW||v1<0||v1>COL||v2>ROW||v2<0||v2>COL){
+void insertMatrixEdge(int matrix[ROW][COL], char v1, char v2){
+	int idx1 = (int)v1 - NODE;
+	int idx2 = (int)v2 - NODE;
+	if(idx1>ROW||idx1<0||idx1>COL||idx2>ROW||idx2<0||idx2>COL){
 		printf("OUT OF BOUNDS.\n");
 	}
 	else{
-		matrix[v1][v2] = 1;
-		matrix[v2][v1] = 1;
+		matrix[idx1][idx2] = 1;
+		matrix[idx2][idx1] = 1;
 	}
 	
 }
