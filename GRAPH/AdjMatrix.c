@@ -10,12 +10,7 @@ void initMatrix(int row, int col, int matrix[row][col]){
 	int i, j;
 	for(i=0; i<ROW; i++){
 		for(j=0; j<COL; j++){
-			if(i == j){
-				matrix[i][j] = 99;
-			}
-			else{
-				matrix[i][j] = 0;
-			}
+			matrix[i][j] = 0;
 		}
 	}
 }
@@ -37,7 +32,7 @@ void displayMatrix(int row, int col, int matrix[row][col]){
 	int i, j, d;
 	int v1 = NODE;
 	int v2 = NODE;
-	printf("DISPLAYING THE ADJACENCY MATRIX: \n    ");
+	printf("DISPLAYING THE ADJACENCY MATRIX: \n   ");
 	for(d=0; d<col; d++){
 		printf(" %c ", v2);
 		v2++;
